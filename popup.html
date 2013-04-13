@@ -2,33 +2,32 @@
 <html>
   <head>
     <title>KnowledgeBox</title>
-    <style>
-      body {
-        min-width: 357px;
-        overflow-x: hidden;
-      }
-    </style>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css"></link>
     <script type="text/javascript" src="api.js"></script>
     <script type="text/javascript" src='ui.js'></script>
     <script type="text/javascript" src="popup.js"></script>
   </head>
   <body>
-    <aside>
-      <a href="#" id='lnkList'>Questions</a>
-      <a href="#" id='lnkAdd'>Add a question</a>
-    </aside>
-
-    <article id='list'>
-
-    </article>
-
+    <header>
+      <h1>knowledge<span id="light">wallet</span></h1>
+    </header>
     <article id='addform'>
       <form id='addQaItemForm'>
-        <input type="text" name="question" placeholder="Question" /><br />
-        <input type="text" name="answer" placeholder="Answer" /><br />
+        <div class="qaSection">
+          <label for="question" class="qaLabel">Q</label>
+          <input type="text" name="question" placeholder="Question" class="qaTextBox" />
+        </div>
+        <div class="qaSection">
+          <label for="answer" class="qaLabel">A</label>
+          <input type="text" name="answer" placeholder="Answer" class="qaTextBox" />
+        </div>
         <input type="hidden" name="url" id='url' />
-        <input type='submit' value='submit' />
+        <input type='submit' value='Add' id='qaButton' />
       </form>
+    </article>
+    <article id='list'>
+
     </article>
   </body>
 </html>

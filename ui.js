@@ -1,18 +1,4 @@
 var ui = {
-	switchToList: function() {
-		document.getElementById('addform').style.display = "none";
-		document.getElementById('list').style.display = "block";
-
-		api.getQaItems(function(data) {
-			ui.renderQaList(data);
-		});
-	},
-
-	switchToAdd: function() {
-		document.getElementById('list').style.display = "none";
-		document.getElementById('addform').style.display = "block";
-	},
-
 	renderQaList: function(qaitems) {
 		var list = document.getElementById("list");
 		list.innerHTML = "";
