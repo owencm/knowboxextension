@@ -7,7 +7,7 @@ var api = {
 	},
 
 	postQuestion: function(form, callback) {
-		ajax.post("/qaitems", ajax.paramStringFromForm(form), callback);
+		ajax.post("/qaitems/", ajax.paramStringFromForm(form), callback);
 	},
 
 	addAnswer: function(form, callback) {

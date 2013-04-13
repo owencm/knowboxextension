@@ -38,7 +38,7 @@ var ui = {
 
 		answerField.type = "text";
 		answerField.name = "answer";
-		answerField.action = "/users/qaitems/" + obj.id;
+		answerField.action = "/users/qaitems/" + obj.id + '/';
 
 		answerForm.addEventListener("submit", function(e) {
 			e.preventDefault();
