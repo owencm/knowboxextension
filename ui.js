@@ -76,6 +76,6 @@ var ui = {
 		actionBtn.href = "#";
 		buttonsContainer.appendChild(actionBtn);
 
-		DOMParent.appendChild(container);
+		DOMParent.insertBefore(container, DOMParent.firstChild);
 	}
 }

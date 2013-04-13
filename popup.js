@@ -12,7 +12,9 @@ window.addEventListener("load", function() {
         form.addEventListener("submit", function(e) {
             e.preventDefault();
             api.postQuestion(form, function(data) {
-                console.log(data);
+                var list = document.getElementById('list');
+                ui.renderQaItem(data, list);
+                form.reset();
             });
         });
 
