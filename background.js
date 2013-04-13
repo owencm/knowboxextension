@@ -1,5 +1,5 @@
 function update_icon() {
-    chrome.tabs.query({active: true}, function(tabs){
+    chrome.tabs.query({active: true, windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tabs){
     	var tab = tabs[0];
         var url = tab.url;
 
