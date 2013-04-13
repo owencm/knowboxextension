@@ -10,10 +10,9 @@ var api = {
 		ajax.post("/qaitems/", ajax.paramStringFromForm(form), callback);
 	},
 
-	addAnswer: function(form, callback) {
-		ajax.post(form.action, ajax.paramStringFromForm(form), callback);
+	addAnswer: function(data, callback) {
+		ajax.post("/users/qaitems/" + data.id + "/", ajax.paramString(data), callback);
 	}
-
 }
 
 var ajax = {

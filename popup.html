@@ -7,6 +7,9 @@
         min-width: 357px;
         overflow-x: hidden;
       }
+      body > article {
+        display: none;
+      }
     </style>
     <script type="text/javascript" src="api.js"></script>
     <script type="text/javascript" src='ui.js'></script>
@@ -29,6 +32,25 @@
         <input type="hidden" name="url" id='url' />
         <input type='submit' value='submit' />
       </form>
+    </article>
+
+    <article id='login'>
+
+      <h1>Login</h1>
+      <form action='/login' id='loginForm'>
+        <input type='text' name='username' placeholder="Username" />
+        <input type='password' name='password' placeholder="Password" />
+        <input type='submit' value='Login'>
+      </form>
+
+      <h1>New here? Sign up</h1>
+      <form action='/register' id='registerForm'>
+        <input type='text' name='username' placeholder="Username" />
+        <input type='password' name='password'  placeholder="Password" />
+        <input type='password' name='password'  placeholder="Password (confirmation)"/>
+        <input type='submit' value='Sign me up'>
+      </form>
+
     </article>
   </body>
 </html>
