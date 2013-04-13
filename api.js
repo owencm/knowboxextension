@@ -12,6 +12,14 @@ var api = {
 
 	addAnswer: function(data, callback) {
 		ajax.post("/users/qaitems/" + data.id + "/", ajax.paramString(data), callback);
+	},
+
+	login: function(form, callback) {
+		ajax.post("/login/", ajax.paramStringFromForm(form), callback);
+	},
+
+	register: function(form, callback) {
+		ajax.post("/register/", ajax.paramStringFromForm(form), callback);
 	}
 }
 

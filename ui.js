@@ -11,11 +11,19 @@ var ui = {
 				ui.renderQaList(data);
 			});
 		});
+		document.getElementById('login').style.display = "none";
 	},
 
 	switchToAdd: function() {
 		document.getElementById('list').style.display = "none";
 		document.getElementById('addform').style.display = "block";
+		document.getElementById('login').style.display = "none";
+	},
+
+	switchToLogin: function() {
+		document.getElementById('list').style.display = "none";
+		document.getElementById('addform').style.display = "none";
+		document.getElementById('login').style.display = "block";
 	},
 
 	renderQaList: function(qaitems) {
