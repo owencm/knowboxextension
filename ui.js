@@ -4,6 +4,16 @@ var ui = {
 		document.getElementById('list').style.display = "block";
 		document.getElementById('addform').style.display = "block";
 		document.getElementById('login').style.display = "none";
+
+		chrome.tabs.query({
+		    active: true,                              // Select active tabs
+		    windowId: chrome.windows.WINDOW_ID_CURRENT // In the current window
+		}, function(array_of_Tabs) {
+		    var tab = array_of_Tabs[0];
+		    api.getQaItems(tab.url, function(data) {
+				ui.renderQaList(data);
+			});
+		});
 	},
 
 	switchToLogin: function() {
@@ -23,67 +33,49 @@ var ui = {
 	renderQaItem: function(obj, DOMParent) {
 		var container = document.createElement("div");
 		container.className = "qaitem";
-		var title = document.createElement("h2");
-		title.appendChild(document.createTextNode(obj.question));
-		container.appendChild(title);
+		
+		var buttonsContainer = document.createElement("div");
+		buttonsContainer.className = "qaBtnContainer";
 
-		var answerStatus = document.createElement("div");
-		var answerDiv = document.createElement("div");
-		var answerShow = document.createElement("a");
+		var contentContainer = document.createElement("div");
+		contentContainer.className = "qaContentContainer";
 
-		answerShow.appendChild(document.createTextNode("Show answer"));
-		answerShow.href = "#";
-		answerShow.addEventListener("click", function(e) {
+		container.appendChild(buttonsContainer);
+		container.appendChild(contentContainer);
+
+		var question = document.createElement("div");
+		question.className = "qaTitleQuestion";
+		question.appendChild(document.createTextNode("Q: " + obj.question));
+		contentContainer.appendChild(question);
+
+		var answer = document.createElement("div");
+		answer.className = "qaTitleAnswer";
+		answer.appendChild(document.createTextNode("A: " + obj.answer));
+		contentContainer.appendChild(answer);
+
+		var actionBtn = document.createElement("a");
+		actionBtn.className = obj.learning === true ? "qaUnlearn" : "qaLearn";
+		actionBtn.addEventListener("click", function(e) {
 			e.preventDefault();
-			answerShow.style.display = "none";
-			answerStatus.style.display = "block"
-			answerStatus.innerHTML = "<strong>" + obj.answer + "</strong>";
-			
-			var answerButtons = document.createElement("aside");
-			var answerRight = document.createElement("a");
-			var answerWrong = document.createElement("a");
-
-			answerRight.href = "#";
-			answerWrong.href = "#";
-
-			answerRight.appendChild(document.createTextNode("Right"));
-			answerWrong.appendChild(document.createTextNode("Wrong"));
-
-			answerRight.addEventListener("click", function(e) {
-				e.preventDefault();
-				api.addAnswer({"id": obj.id, "right": true}, function(data) {
-					console.log("Success");
+			if (obj.learning) {
+				api.forget(obj.id, function(data) {
+					obj.learning = false;
+					actionBtn.className = "qaLearn";
+					actionBtn.innerHTML = "+";
 				});
-			});
-
-			answerWrong.addEventListener("click", function(e) {
-				e.preventDefault();
-				api.addAnswer({"id": obj.id, "right": true}, function(data) {
-					console.log("Success");
+			} else {
+				api.learn(obj.id, function(data) {
+					obj.learning = true;
+					actionBtn.className = "qaUnlearn";
+					actionBtn.innerHTML = "-";
 				});
-			});
-
-			answerButtons.appendChild(answerRight);
-			answerButtons.appendChild(answerWrong);
-
-			answerStatus.appendChild(answerButtons);
+			}
 		});
 
-		answerStatus.style.display = "none";
+		actionBtn.appendChild(document.createTextNode(obj.learning ? "-" : "+"));
+		actionBtn.href = "#";
+		buttonsContainer.appendChild(actionBtn);
 
-		answerDiv.appendChild(answerStatus);
-		answerDiv.appendChild(answerShow);
-		container.appendChild(answerDiv);
 		DOMParent.appendChild(container);
 	}
 }
-
-chrome.tabs.query({
-    active: true,                              // Select active tabs
-    windowId: chrome.windows.WINDOW_ID_CURRENT // In the current window
-}, function(array_of_Tabs) {
-    var tab = array_of_Tabs[0];
-    api.getQaItems(tab.url, function(data) {
-		ui.renderQaList(data);
-	});
-});

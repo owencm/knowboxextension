@@ -20,6 +20,15 @@ var api = {
 
 	register: function(form, callback) {
 		ajax.post("/register/", ajax.paramStringFromForm(form), callback);
+	},
+
+	learn: function(qid, callback) {
+		// post(user id)  /qaitem/id/:id/learn
+		ajax.post("/qaitems/id/" + qid + "/learn/", ajax.paramString({user_id: user.currentUser()}), callback);
+	},
+
+	forget: function(qid, callback) {
+		ajax.post("/qaitems/id/" + qid + "/forget/", ajax.paramString({user_id: user.currentUser()}), callback);
 	}
 }
 
@@ -75,5 +84,3 @@ var ajax = {
 		req.send(paramString);
 	}
 }
-
-

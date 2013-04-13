@@ -6,10 +6,6 @@ window.addEventListener("load", function() {
         var tab = array_of_Tabs[0];
         var url = tab.url;
 
-        var span = document.createElement('span');
-        span.innerHTML = url;
-        document.body.appendChild(span);
-
         document.getElementById("url").value = url;
 
         var form = document.getElementById("addQaItemForm");
