@@ -13,7 +13,7 @@
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["api.js", "background.js"],
+    "scripts": ["api.js", "background.js", "user.js"],
     "persistent": false
   }
 }

@@ -3,7 +3,7 @@
 
 var api = {
 	getQaItems: function(url, callback) {
-		ajax.get("/qaitems/url/" + encodeURIComponent(url) , callback);
+		ajax.get("/qaitems/user/" + user.currentUser() + "/url/" + encodeURIComponent(url), callback);
 	},
 
 	postQuestion: function(form, callback) {
