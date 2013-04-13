@@ -11,15 +11,15 @@ chrome.tabs.query({
 
     document.getElementById("url").value = url;
 
-    api.postQuestion({"hello": "world", "Foo": "bar", "blah": "bla"}, function(data, xml) {
-    	console.log(data, xml);
-    });
-
     var form = document.getElementById("addQaItemForm");
     form.addEventListener("submit", function(e) {
         e.preventDefault();
+        console.log(form);
         api.postQuestion(form, function(data) {
             console.log(data);
         });
     });
+
+    document.getElementById("lnkList").addEventListener("click", ui.switchToList);
+    document.getElementById("lnkAdd").addEventListener("click", ui.switchToAdd);
 });

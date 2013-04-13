@@ -8,6 +8,10 @@ var api = {
 
 	postQuestion: function(form, callback) {
 		ajax.post("/gaitems", ajax.paramStringFromForm(form), callback);
+	},
+
+	addAnswer: function(form, callback) {
+		ajax.post(form.action, ajax.paramStringFromForm(form), callback);
 	}
 
 }
@@ -28,12 +32,11 @@ var ajax = {
 	},
 
 	paramString: function(data) {
-		var params = "";
+		var params = [];
 		for (i in data) {
-			if (params!=="") { params += "&"; }
-			params += i + "=" + data[i];
+			params.push(encodeURIComponent(i) + "=" + encodeURIComponent(data[i]));
 		}
-		return params;
+		return params.join("&");
 	},
 
 	get: function(url, callback) {

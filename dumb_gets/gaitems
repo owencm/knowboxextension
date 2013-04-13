@@ -1,4 +1,12 @@
+[{
+	"question": "What time is it?",
+	"answer": "now"
+},
 {
-	"something": "something else",
-	"bla": "boo"
-}
+	"question": "Where are you?",
+	"answer": "here"
+},
+{
+	"question": "Who's gonna win?",
+	"answer": "knowledgebox"
+}]
