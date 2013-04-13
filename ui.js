@@ -62,17 +62,24 @@ var ui = {
 					obj.learning = false;
 					actionBtn.className = "qaLearn";
 					actionBtn.innerHTML = "+";
+					contentContainer.className = "qaContentContainer";
 				});
 			} else {
 				api.learn(obj.id, function(data) {
 					obj.learning = true;
 					actionBtn.className = "qaUnlearn";
 					actionBtn.innerHTML = "✓";
+					contentContainer.className = "qaContentContainer added";
 				});
 			}
 		});
 
 		actionBtn.appendChild(document.createTextNode(obj.learning ? "✓" : "+"));
+		if (obj.learning) {
+			contentContainer.className = "qaContentContainer added";
+		} else {
+			contentContainer.className = "qaContentContainer";
+		}
 		actionBtn.href = "#";
 		buttonsContainer.appendChild(actionBtn);
 
