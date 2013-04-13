@@ -100,3 +100,11 @@ header {
 	font-weight: bold;
 	padding: 3px;
 }
+
+.qaUnlearn{
+	font-family: arial;
+}
+
+#list {
+	margin-bottom: 20px;
+}

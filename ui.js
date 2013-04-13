@@ -67,12 +67,12 @@ var ui = {
 				api.learn(obj.id, function(data) {
 					obj.learning = true;
 					actionBtn.className = "qaUnlearn";
-					actionBtn.innerHTML = "-";
+					actionBtn.innerHTML = "✓";
 				});
 			}
 		});
 
-		actionBtn.appendChild(document.createTextNode(obj.learning ? "-" : "+"));
+		actionBtn.appendChild(document.createTextNode(obj.learning ? "✓" : "+"));
 		actionBtn.href = "#";
 		buttonsContainer.appendChild(actionBtn);
 
