@@ -7,6 +7,7 @@
     <script type="text/javascript" src="api.js"></script>
     <script type="text/javascript" src='ui.js'></script>
     <script type="text/javascript" src="popup.js"></script>
+    <script type="text/javascript" src="user.js"></script>
   </head>
   <body>
     <header>
@@ -26,7 +27,27 @@
         <input type='submit' value='Add' id='qaButton' />
       </form>
     </article>
+
     <article id='list'>
+
+    </article>
+
+    <article id='login'>
+
+      <h1>Login</h1>
+      <form action='/login/' id='loginForm'>
+        <input type='text' name='username' placeholder="Username" />
+        <input type='password' name='password' placeholder="Password" />
+        <input type='submit' value='Login'>
+      </form>
+
+      <h1>New here? Sign up</h1>
+      <form action='/register/' id='registerForm'>
+        <input type='text' name='username' placeholder="Username" />
+        <input type='password' name='password'  placeholder="Password" />
+        <input type='password2' name='password'  placeholder="Password (confirmation)"/>
+        <input type='submit' value='Sign me up'>
+      </form>
 
     </article>
   </body>

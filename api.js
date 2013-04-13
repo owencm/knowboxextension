@@ -2,18 +2,25 @@
 // and the XMLHttpRequest object as the second one: callback(data, req)
 
 var api = {
-	getQaItems: function(callback) {
-		ajax.get("/qaitems", callback);
+	getQaItems: function(url, callback) {
+		ajax.get("/qaitems/url/" + encodeURIComponent(url) , callback);
 	},
 
 	postQuestion: function(form, callback) {
 		ajax.post("/qaitems/", ajax.paramStringFromForm(form), callback);
 	},
 
-	addAnswer: function(form, callback) {
-		ajax.post(form.action, ajax.paramStringFromForm(form), callback);
-	}
+	addAnswer: function(data, callback) {
+		ajax.post("/users/qaitems/" + data.id + "/", ajax.paramString(data), callback);
+	},
 
+	login: function(form, callback) {
+		ajax.post("/login/", ajax.paramStringFromForm(form), callback);
+	},
+
+	register: function(form, callback) {
+		ajax.post("/register/", ajax.paramStringFromForm(form), callback);
+	}
 }
 
 var ajax = {
@@ -58,11 +65,8 @@ var ajax = {
 
 		var req = new XMLHttpRequest();
 		req.onload = function() {
-			try {
-				var data = JSON.parse(this.responseText);
-				callback(data, this);
-			} catch(e) {
-			}
+			var data = JSON.parse(this.responseText);
+			callback(data, this);
 		}
 
 		req.open("POST", url, true);
