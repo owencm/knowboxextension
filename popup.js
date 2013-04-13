@@ -21,12 +21,12 @@ window.addEventListener("load", function() {
         });
 
         document.getElementById("lnkList").addEventListener("click", ui.switchToList);
-        document.getElementById("lnkAdd").addEventListener("click", ui.switchToAdd);
+        document.getElementById("lnkAdd").addEventListener("click", ui.switchToNormal);
 
         user.addListenersToForms();
 
         if (user.isLoggedIn()) {
-            ui.switchToAdd();
+            ui.switchToNormal();
         } else {
             ui.switchToLogin();
         }

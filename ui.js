@@ -1,20 +1,6 @@
 var ui = {
-	switchToList: function() {
-		document.getElementById('addform').style.display = "none";
-		document.getElementById('list').style.display = "block";
-		chrome.tabs.query({
-		    active: true,                              // Select active tabs
-		    windowId: chrome.windows.WINDOW_ID_CURRENT // In the current window
-		}, function(array_of_Tabs) {
-		    var tab = array_of_Tabs[0];
-		    api.getQaItems(tab.url, function(data) {
-				ui.renderQaList(data);
-			});
-		});
-		document.getElementById('login').style.display = "none";
-	},
 
-	switchToAdd: function() {
+	switchToNormal: function() {
 		document.getElementById('list').style.display = "none";
 		document.getElementById('addform').style.display = "block";
 		document.getElementById('login').style.display = "none";
@@ -91,3 +77,13 @@ var ui = {
 		DOMParent.appendChild(container);
 	}
 }
+
+chrome.tabs.query({
+    active: true,                              // Select active tabs
+    windowId: chrome.windows.WINDOW_ID_CURRENT // In the current window
+}, function(array_of_Tabs) {
+    var tab = array_of_Tabs[0];
+    api.getQaItems(tab.url, function(data) {
+		ui.renderQaList(data);
+	});
+});

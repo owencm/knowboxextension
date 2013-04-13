@@ -1,0 +1,62 @@
+body {
+	width: 350px;
+	font-family: Lato, sans-serif;
+}
+
+header {
+	width: 100%;
+} h1 {
+	text-align: center;
+	margin: 15px auto;
+	color: #414142;
+}
+
+.qaLabel {
+	display: inline-block;
+	width: 25px;
+	font-size: 18pt;
+	margin-right: 10px;
+	text-align: center;
+}
+
+.qaSection {
+	width: 310px;
+	margin: 0 auto;
+}
+
+.qaTextBox {
+	width: 250px;
+	height: 20px;
+	font-size: 13pt;
+}::-webkit-input-placeholder {
+	color: #eee;
+	font-weight: 200;
+}
+
+#light {
+	font-weight: normal;
+	color: #21a9e0;
+}
+
+.qaSection {
+	margin-top: 10px;
+}
+
+#qaButton {
+	margin: 15px auto;
+	display: block;
+	border: 0px;
+	box-shadow:inset 0px -2px 0px 0px #327794;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #2aaae1), color-stop(1, #2aaae1) );
+	background-color:#2aaae1;
+	border-radius:6px;
+	color:#ffffff;
+	font-family:arial;
+	font-size:21px;
+	font-weight:normal;
+	padding:10px 40px;
+	text-decoration:none;
+}.#qaButton:active {
+	position:relative;
+	top:1px;
+}
