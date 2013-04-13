@@ -3,11 +3,11 @@
 
 var api = {
 	getQaItems: function(callback) {
-		ajax.get("/gaitems", callback);
+		ajax.get("/qaitems", callback);
 	},
 
 	postQuestion: function(form, callback) {
-		ajax.post("/gaitems", ajax.paramStringFromForm(form), callback);
+		ajax.post("/qaitems", ajax.paramStringFromForm(form), callback);
 	},
 
 	addAnswer: function(form, callback) {
