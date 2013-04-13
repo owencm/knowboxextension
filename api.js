@@ -2,12 +2,35 @@
 // and the XMLHttpRequest object as the second one: callback(data, req)
 
 var api = {
+	qaListCache: undefined,
+
 	getQaItems: function(url, callback) {
 		ajax.get("/qaitems/user/" + user.currentUser() + "/url/" + encodeURIComponent(url), callback);
 	},
 
 	postQuestion: function(form, callback) {
 		ajax.post("/qaitems/", ajax.paramStringFromForm(form), callback);
+	},
+
+	getQaItemsByUser: function(userId, callback) {
+		ajax.get('/qaitems/user/'+userId, callback);
+	},
+
+	getRandomQa: function(userId, callback) {
+		if (api.qaListCache === undefined) {
+			api.getQaItemsByUser(userId, function(data) {
+				if (data.length > 0) {
+					api.qaListCache = data;
+					callback({success: true, qaitem: data[Math.floor(Math.random()*data.length)]});
+				} else {
+					callback({success: false});
+				}
+			});
+		} else if (api.qaListCache.length > 0) {
+			callback({success: true, qaitem: api.qaListCache[Math.floor(Math.random()*api.qaListCache.length)]});
+		} else {
+			callback({success: false});
+		}
 	},
 
 	addAnswer: function(data, callback) {
