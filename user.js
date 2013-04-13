@@ -16,6 +16,7 @@ var user = {
 
 	login: function(userdata) {
 		localStorage.userId = userdata.id;
+		ui.switchToAdd();
 	},
 
 	addListenersToForms: function() {
@@ -23,7 +24,7 @@ var user = {
 		loginFrm.addEventListener("submit", function(e) {
 			e.preventDefault();
 			api.login(loginFrm, function(data) {
-				if (data.ok) {
+				if (data.success) {
 					user.login(data);
 				} else {
 					console.log("try again");
@@ -35,7 +36,7 @@ var user = {
 		registrationFrm.addEventListener("submit", function(e) {
 			e.preventDefault();
 			api.register(registrationFrm, function(data) {
-				if (data.ok) {
+				if (data.id) {
 					user.login(data);
 				} else {
 					console.log("error. try again");

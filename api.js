@@ -65,11 +65,8 @@ var ajax = {
 
 		var req = new XMLHttpRequest();
 		req.onload = function() {
-			try {
-				var data = JSON.parse(this.responseText);
-				callback(data, this);
-			} catch(e) {
-			}
+			var data = JSON.parse(this.responseText);
+			callback(data, this);
 		}
 
 		req.open("POST", url, true);
