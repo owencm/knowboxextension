@@ -41,3 +41,7 @@ var ui = {
 		DOMParent.appendChild(container);
 	}
 }
+
+api.getQaItems(function(data) {
+	ui.renderQaList(data);
+});
