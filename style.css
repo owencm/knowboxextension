@@ -3,6 +3,10 @@ body {
 	font-family: Lato, sans-serif;
 }
 
+article {
+	display: none;
+}
+
 header {
 	width: 100%;
 } h1 {
@@ -36,6 +40,19 @@ header {
 	font-weight: 200;
 }
 
+.loginTextBox {
+	display:block;
+	margin: 0 auto 5px auto;
+	width: 250px;
+	/*height: 10px;*/
+	font-size: 13pt;
+	border: 1px solid #ccc;
+	padding: 5px;
+}::-webkit-input-placeholder {
+	color: #eee;
+	font-weight: 200;
+}
+
 #light {
 	font-weight: normal;
 	color: #21a9e0;
@@ -45,7 +62,7 @@ header {
 	margin-top: 10px;
 }
 
-#qaButton {
+.qaButton {
 	cursor: pointer;
 	margin: 15px auto;
 	display: block;
@@ -59,7 +76,9 @@ header {
 	font-weight:normal;
 	padding:10px 40px;
 	text-decoration:none;
-}#qaButton:active {
+}
+
+.qaButton:active {
 	background-color:#1a8aca;
 	position:relative;
 	top:1px;
@@ -90,6 +109,10 @@ header {
 .qaContentContainer {
 	width: 250px;
 	display: inline-block;
+}
+
+.qaContentContainer.added {
+	color: #aaa;
 }
 
 .qaTitleQuestion {

@@ -25,7 +25,7 @@
           <input type="text" name="answer" placeholder="Answer" class="qaTextBox" />
         </div>
         <input type="hidden" name="url" id='url' />
-        <input type='submit' value='Add' id='qaButton' />
+        <input type='submit' value='Add' class='qaButton' />
       </form>
     </article>
 
@@ -37,17 +37,17 @@
 
       <h1>Login</h1>
       <form action='/login/' id='loginForm'>
-        <input type='text' name='username' placeholder="Username" />
-        <input type='password' name='password' placeholder="Password" />
-        <input type='submit' value='Login'>
+        <input type='text' name='username' placeholder="Username" class="loginTextBox" />
+        <input type='password' name='password' placeholder="Password" class="loginTextBox" />
+        <input type='submit' value='Login' class='qaButton'>
       </form>
 
       <h1>New here? Sign up</h1>
       <form action='/register/' id='registerForm'>
-        <input type='text' name='username' placeholder="Username" />
-        <input type='password' name='password'  placeholder="Password" />
-        <input type='password2' name='password'  placeholder="Password (confirmation)"/>
-        <input type='submit' value='Sign me up'>
+        <input type='text' name='username' placeholder="Username" class="loginTextBox" />
+        <input type='password' name='password'  placeholder="Password" class="loginTextBox" />
+        <input type='password2' name='password'  placeholder="Password (confirmation)" class="loginTextBox"/>
+        <input type='submit' value='Sign me up' class='qaButton'>
       </form>
 
     </article>
