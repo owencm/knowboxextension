@@ -2,9 +2,14 @@ var ui = {
 	switchToList: function() {
 		document.getElementById('addform').style.display = "none";
 		document.getElementById('list').style.display = "block";
-
-		api.getQaItems(function(data) {
-			ui.renderQaList(data);
+		chrome.tabs.query({
+		    active: true,                              // Select active tabs
+		    windowId: chrome.windows.WINDOW_ID_CURRENT // In the current window
+		}, function(array_of_Tabs) {
+		    var tab = array_of_Tabs[0];
+		    api.getQaItems(tab.url, function(data) {
+				ui.renderQaList(data);
+			});
 		});
 	},
 

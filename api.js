@@ -2,8 +2,8 @@
 // and the XMLHttpRequest object as the second one: callback(data, req)
 
 var api = {
-	getQaItems: function(callback) {
-		ajax.get("/qaitems", callback);
+	getQaItems: function(url, callback) {
+		ajax.get("/qaitems/url/" + encodeURIComponent(url) , callback);
 	},
 
 	postQuestion: function(form, callback) {

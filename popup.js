@@ -14,7 +14,6 @@ chrome.tabs.query({
     var form = document.getElementById("addQaItemForm");
     form.addEventListener("submit", function(e) {
         e.preventDefault();
-        console.log(form);
         api.postQuestion(form, function(data) {
             console.log(data);
         });
