@@ -21,6 +21,7 @@ var user = {
 
 	logout: function() {
 		localStorage.userId = undefined;
+		ui.switchToLogin();
 	},
 
 	addListenersToForms: function() {
