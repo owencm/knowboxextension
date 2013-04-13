@@ -14,4 +14,12 @@ chrome.tabs.query({
     api.postQuestion({"hello": "world", "Foo": "bar", "blah": "bla"}, function(data, xml) {
     	console.log(data, xml);
     });
+
+    var form = document.getElementById("addQaItemForm");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        api.postQuestion(form, function(data) {
+            console.log(data);
+        });
+    });
 });

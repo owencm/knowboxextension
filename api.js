@@ -6,14 +6,26 @@ var api = {
 		ajax.get("/gaitems", callback);
 	},
 
-	postQuestion: function(data, callback) {
-		ajax.post("/gaitems", data, callback);
+	postQuestion: function(form, callback) {
+		ajax.post("/gaitems", ajax.paramStringFromForm(form), callback);
 	}
 
 }
 
 var ajax = {
 	url: "http://kbx.local:8000",
+
+	paramStringFromForm: function(obj) {
+		var parameters = [];
+
+		for ( var i = 0; i < obj.elements.length; i++ ) {
+			var e = obj.elements[i];
+			if (e && e.name && e.value)
+				parameters.push(encodeURIComponent(e.name) + "=" + encodeURIComponent(e.value));
+		}
+
+		return parameters.join("&");
+	},
 
 	paramString: function(data) {
 		var params = "";
@@ -38,7 +50,7 @@ var ajax = {
 		req.send();
 	},
 
-	post: function(url, data, callback) {
+	post: function(url, paramString, callback) {
 		url = ajax.url + url;
 
 		var req = new XMLHttpRequest();
@@ -50,12 +62,10 @@ var ajax = {
 			}
 		}
 
-		var params = ajax.paramString(data);
-
 		req.open("POST", url, true);
 		req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-		req.send(params);
+		req.send(paramString);
 	}
 }
 
