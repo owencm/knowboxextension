@@ -10,8 +10,10 @@ var ui = {
 		    windowId: chrome.windows.WINDOW_ID_CURRENT // In the current window
 		}, function(array_of_Tabs) {
 		    var tab = array_of_Tabs[0];
+		    ui.setLoading();
 		    api.getQaItems(tab.url, function(data) {
 				ui.renderQaList(data);
+				ui.stopLoading();
 			});
 		});
 	},
@@ -84,5 +86,13 @@ var ui = {
 		buttonsContainer.appendChild(actionBtn);
 
 		DOMParent.insertBefore(container, DOMParent.firstChild);
+	},
+
+	setLoading: function() {
+		document.body.style.background = "url(loading.gif) 25px 25px no-repeat";
+	},
+
+	stopLoading: function() {
+		document.body.style.background = "#fff";
 	}
 }
