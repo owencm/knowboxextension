@@ -1,7 +1,7 @@
 var ui = {
 
 	switchToNormal: function() {
-		document.getElementById('list').style.display = "none";
+		document.getElementById('list').style.display = "block";
 		document.getElementById('addform').style.display = "block";
 		document.getElementById('login').style.display = "none";
 	},

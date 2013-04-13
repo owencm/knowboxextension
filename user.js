@@ -16,7 +16,11 @@ var user = {
 
 	login: function(userdata) {
 		localStorage.userId = userdata.id;
-		ui.switchToAdd();
+		ui.switchToNormal();
+	},
+
+	logout: function() {
+		localStorage.userId = undefined;
 	},
 
 	addListenersToForms: function() {
