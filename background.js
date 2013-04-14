@@ -6,7 +6,7 @@ function update_icon() {
         api.getQaItems(url, function(data) {
         	console.log("something", data.length);
         	if (data.length > 0) {
-			    chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
+			    chrome.browserAction.setBadgeBackgroundColor({color:[176, 20, 20, 230]});
 			    chrome.browserAction.setBadgeText({text:data.length.toString()});
 			} else {
 				chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 0]});

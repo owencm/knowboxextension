@@ -13,7 +13,7 @@ var api = {
 	},
 
 	getQaItemsByUser: function(userId, callback) {
-		ajax.get('/qaitems/user/'+userId, callback);
+		ajax.get('/qaitems/user/'+userId+"/", callback);
 	},
 
 	getRandomQa: function(userId, callback) {

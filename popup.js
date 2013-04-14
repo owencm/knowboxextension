@@ -13,6 +13,7 @@ window.addEventListener("load", function() {
             e.preventDefault();
             api.postQuestion(form, function(data) {
                 var list = document.getElementById('list');
+                data.learning = true; // Since you added it, you will be made to be learning it
                 ui.renderQaItem(data, list);
                 form.reset();
             });
