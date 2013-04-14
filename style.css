@@ -49,7 +49,7 @@ header {
 	border: 1px solid #ccc;
 	padding: 5px;
 }::-webkit-input-placeholder {
-	color: #eee;
+	color: #ccc;
 	font-weight: 200;
 }
 
