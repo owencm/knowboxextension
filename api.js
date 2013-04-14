@@ -57,7 +57,7 @@ var api = {
 }
 
 var ajax = {
-	url: "http://local.kbx:8000",
+	url: "http://knowledgewallet.herokuapp.com",
 
 	paramStringFromForm: function(obj) {
 		var parameters = [];

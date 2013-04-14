@@ -6,7 +6,7 @@
   "version": "0.1",
 
   "permissions": [
-    "tabs", "http://local.kbx:8000/"
+    "tabs", "http://knowledgewallet.herokuapp.com/", "http://www.knowledgewallet.herokuapp.com/"
   ],
   "browser_action": {
     "default_icon": "icon.png",
