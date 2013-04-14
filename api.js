@@ -35,7 +35,7 @@ var api = {
 	},
 
 	addAnswer: function(data, callback) {
-		ajax.post("/users/qaitems/" + data.id + "/", ajax.paramString(data), callback);
+		ajax.post("/qresponse/", ajax.paramString(data), callback);
 	},
 
 	login: function(form, callback) {
