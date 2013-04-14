@@ -9,6 +9,7 @@ var api = {
 	},
 
 	postQuestion: function(form, callback) {
+		document.getElementById('user_id_hack_thing').value = user.currentUser();
 		ajax.post("/qaitems/", ajax.paramStringFromForm(form), callback);
 	},
 
