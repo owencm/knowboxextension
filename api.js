@@ -57,7 +57,7 @@ var api = {
 }
 
 var ajax = {
-	url: "http://kbx.local:8000",
+	url: "http://local.kbx:8000",
 
 	paramStringFromForm: function(obj) {
 		var parameters = [];
